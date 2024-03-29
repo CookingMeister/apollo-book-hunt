@@ -1,3 +1,9 @@
+/**
+ * GraphQL mutations for authenticating users and managing user data
+ *
+ * These mutations are exposed for external use (e.g. by the frontend) to authenticate
+ * users and manipulate user data.
+ */
 import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`

@@ -1,3 +1,6 @@
+/**
+ * GraphQL query to fetch the currently authenticated user's profile data including saved books
+ */
 import { gql } from '@apollo/client';
 
 export const GET_ME = gql`
