@@ -1,3 +1,10 @@
+/**
+ * Renders the React Router BrowserRouter and routes for the app
+ *
+ * Imports ReactDOM and React Router dependencies.
+ * Creates a BrowserRouter with routes for the home page, search books page, and saved books page.
+ * Renders the router provider to the root DOM element.
+ */
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,6 +33,4 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(
-  <RouterProvider router={router} />
-);
+root.render(<RouterProvider router={router} />);

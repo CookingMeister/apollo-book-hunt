@@ -24,10 +24,11 @@ const httpLink = new HttpLink({
 
 // create an auth middleware to add the token to the headers
 const authMiddleware = new ApolloLink((operation, forward) => {
+  const token = localStorage.getItem('id_token');
   operation.setContext(({ headers = {} }) => ({
     headers: {
       ...headers,
-      authorization: localStorage.getItem('id_token') || null,
+      authorization: token ? `Bearer ${token}` : null,
     },
   }));
 
