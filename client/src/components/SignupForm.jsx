@@ -1,3 +1,8 @@
+/**
+ * Signup form component.
+ * Handles form state, validation, and submission via mutation.
+ * Displays alert on error.
+ */
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
@@ -34,20 +39,16 @@ const SignupForm = () => {
     }
     // Use add user mutation
     try {
-      const newUser = await addUser({
-        variables: {
-          ...userFormData,
-        },
+      const { data } = await addUser({
+        variables: { ...userFormData },
       });
-      
-      if (!newUser.errors) {
-        const {
-          token,
-          user: { username },
-        } = newUser.addUser;
-        console.log(username, token);
-        Auth.login(token);
-      }
+
+        // const {
+        //   token,
+        //   user: { username },
+        // } = await data.addUser;
+        console.log(data);
+        Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
