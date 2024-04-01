@@ -8,33 +8,30 @@
 import './App.css';
 import { Outlet } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import { setContext } from '@apollo/client/link/context';
 import {
   ApolloClient,
   HttpLink,
-  ApolloLink,
   InMemoryCache,
   concat,
   ApolloProvider,
 } from '@apollo/client';
 
+
 // create an http link endpoint
 const httpLink = new HttpLink({
   uri: '/graphql',
 });
-
 // create an auth middleware to add the token to the headers
-const authMiddleware = new ApolloLink((operation, forward) => {
-  const token = localStorage.getItem('id_token');
-  operation.setContext(({ headers = {} }) => ({
+const authMiddleware = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
     headers: {
       ...headers,
-      authorization: token ? `Bearer ${token}` : null,
+      authorization: token ? `Bearer ${token}` : "",
     },
-  }));
-
-  return forward(operation);
+  };
 });
-
 // execute the auth middleware before GraphQL requests
 const client = new ApolloClient({
   cache: new InMemoryCache(),

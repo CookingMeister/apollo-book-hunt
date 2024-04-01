@@ -3,7 +3,7 @@
  * Handles form state, validation, and submission via mutation.
  * Displays alert on error.
  */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
@@ -20,8 +20,18 @@ const SignupForm = () => {
   const [validated] = useState(false);
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
+  // set errorMessage to state
+  const [errorMessage, setErrorMessage] = useState('');
   // set addUser to mutation
-  const [addUser] = useMutation(ADD_USER);
+  const [addUser, { error }] = useMutation(ADD_USER);
+
+  useEffect(() => {
+    if (error) {
+      setShowAlert(true);
+    } else {
+      setShowAlert(false);
+    }
+  }, [error]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -37,21 +47,29 @@ const SignupForm = () => {
       event.preventDefault();
       event.stopPropagation();
     }
+    
     // Use add user mutation
     try {
+      console.log(userFormData);
       const { data } = await addUser({
         variables: { ...userFormData },
       });
 
-        // const {
-        //   token,
-        //   user: { username },
-        // } = await data.addUser;
-        console.log(data);
-        Auth.login(data.addUser.token);
+      // const {
+      //   token,
+      //   user: { username },
+      // } = await data.addUser;
+      console.log('data is:', data);
+      Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
+
+      // Extract error message
+      const errMessage = err.message.includes('GraphQL error')
+        ? err.graphQLErrors[0].message
+        : 'Something went wrong with your signup!';
       setShowAlert(true);
+      setErrorMessage(errMessage);
     }
 
     setUserFormData({
@@ -72,7 +90,8 @@ const SignupForm = () => {
           show={showAlert}
           variant="danger"
         >
-          Something went wrong with your signup!
+          {/* Something went wrong with your signup! */}
+          {errorMessage}
         </Alert>
 
         <Form.Group className="mb-3">
