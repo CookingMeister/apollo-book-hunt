@@ -14,9 +14,12 @@ import { removeBookId } from '../utils/localStorage';
 
 const SavedBooks = () => {
   const { loading, data } = useQuery(GET_ME);
-  let userData = data?.me || [];
-  console.log(userData);
-  const [removeBook] = useMutation(REMOVE_BOOK);
+  const userData = data?.me || null;
+
+  // Use remove book mutation and refetch data
+  const [removeBook] = useMutation(REMOVE_BOOK, {
+    refetchQueries: [{ query: GET_ME }],
+  });
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
@@ -25,19 +28,12 @@ const SavedBooks = () => {
     if (!token) {
       return false;
     }
-
+   
     try {
-      const { updatedUser } = await removeBook({
-        variables: {
-          bookId: bookId,
-        },
+      await removeBook({
+        variables: { bookId },
       });
 
-      if (updatedUser.errors) {
-        throw new Error('something went wrong!');
-      }
-
-      userData = updatedUser;
       // remove book id from localStorage
       removeBookId(bookId);
     } catch (err) {
@@ -52,7 +48,7 @@ const SavedBooks = () => {
 
   return (
     <>
-      <div fluid className="text-light bg-dark p-5">
+      <div fluid="true" className="text-light bg-dark p-5">
         <Container>
           <h1>Viewing saved books!</h1>
         </Container>

@@ -14,7 +14,6 @@ module.exports = {
     // trim off "Bearer" from the token string
     token = req.headers.authorization ? token.split(' ').pop().trim() : token;
     console.log('trimmed token:', token);
-    // console.log(secret);
 
     if (!token) {
       return req;

@@ -32,9 +32,23 @@ const authMiddleware = setContext((_, { headers }) => {
     },
   };
 });
+// Create policy to merge new savedBooks cache data
+const cache = new InMemoryCache({
+  typePolicies: {
+    User: {
+      fields: {
+        savedBooks: {
+          merge(_existing = [], incoming) {
+            return incoming;
+          },
+        },
+      },
+    },
+  },
+});
 // execute the auth middleware before GraphQL requests
 const client = new ApolloClient({
-  cache: new InMemoryCache(),
+  cache,
   link: concat(authMiddleware, httpLink),
 });
 
