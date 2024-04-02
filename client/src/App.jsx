@@ -38,6 +38,7 @@ const cache = new InMemoryCache({
     User: {
       fields: {
         savedBooks: {
+          // eslint-disable-next-line no-unused-vars
           merge(_existing = [], incoming) {
             return incoming;
           },

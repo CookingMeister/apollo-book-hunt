@@ -50,16 +50,10 @@ const SignupForm = () => {
     
     // Use add user mutation
     try {
-      console.log(userFormData);
       const { data } = await addUser({
         variables: { ...userFormData },
       });
 
-      // const {
-      //   token,
-      //   user: { username },
-      // } = await data.addUser;
-      console.log('data is:', data);
       Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);

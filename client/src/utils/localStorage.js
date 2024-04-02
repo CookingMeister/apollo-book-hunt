@@ -1,3 +1,8 @@
+/**
+ * Gets saved book IDs from localStorage
+ * Returns an array of saved book IDs or empty array if none exist
+ * Saves or removes book IDs to/from localStorage
+ */
 export const getSavedBookIds = () => {
   const savedBookIds = localStorage.getItem('saved_books')
     ? JSON.parse(localStorage.getItem('saved_books'))
@@ -23,7 +28,9 @@ export const removeBookId = (bookId) => {
     return false;
   }
 
-  const updatedSavedBookIds = savedBookIds?.filter((savedBookId) => savedBookId !== bookId);
+  const updatedSavedBookIds = savedBookIds?.filter(
+    (savedBookId) => savedBookId !== bookId
+  );
   localStorage.setItem('saved_books', JSON.stringify(updatedSavedBookIds));
 
   return true;

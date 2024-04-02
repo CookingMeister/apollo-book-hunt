@@ -1,3 +1,12 @@
+/**
+ * Resolvers for the GraphQL API.
+ *
+ * This exports the resolvers object which defines the query and mutation resolvers for the API.
+ *
+ * The Query resolvers allow fetching data like the logged in user.
+ *
+ * The Mutation resolvers allow modifying data like creating users, logging in, and saving books.
+ */
 const { AuthenticationError } = require('apollo-server-express');
 const { User } = require('../models');
 const { signToken } = require('../utils/auth');

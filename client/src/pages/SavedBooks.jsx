@@ -48,6 +48,7 @@ const SavedBooks = () => {
 
   return (
     <>
+      {/* eslint-disable-next-line react/no-unknown-property */}
       <div fluid="true" className="text-light bg-dark p-5">
         <Container>
           <h1>Viewing saved books!</h1>
@@ -64,8 +65,8 @@ const SavedBooks = () => {
         <Row>
           {userData.savedBooks.map((book) => {
             return (
-              <Col md="4">
-                <Card key={book.bookId} border="dark">
+              <Col key={book.bookId} md="4">
+                <Card border="dark">
                   {book.image ? (
                     <Card.Img
                       src={book.image}
