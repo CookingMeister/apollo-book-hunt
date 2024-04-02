@@ -9,6 +9,7 @@
 - [Getting Started](#getting-started)
 - [Technologies](#technologies-used)
 - [Screenshot](#screenshot)
+- [Link](#link)
 - [API Documentation](#api-documentation)
 - [Contributing](#contributing)
 - [Questions](#questions)
@@ -70,11 +71,13 @@ To run the Apollo Book Hunt application locally, follow these steps:
 
 ## Screenshot
 
+The following screenshot shows the Apollo Book Hunt application in action:
+
 ![Screenshot of Apollo Book Hunt](client/public/mockup.png)
 
 ## Link
 
-The Apollo Book Hunt application is deployed on Render at [https://apollo-book-hunt.onrender.com](https://apollo-book-hunt.onrender.com).
+The Apollo Book Hunt application is deployed on Render at [apollo-book-hunt.onrender.com](https://apollo-book-hunt.onrender.com).
 
 ## API Documentation
 

@@ -31,7 +31,7 @@ const startServer = async () => {
     typeDefs,
     resolvers,
     context: authMiddleware,
-    cache: 'bounded',
+    cache: 'bounded', // the following two options protect against DNS memory exhaustion attacks
     persistedQueries: false,
   });
 
