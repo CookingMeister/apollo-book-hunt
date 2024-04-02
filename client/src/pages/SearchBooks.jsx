@@ -109,6 +109,7 @@ const SearchBooks = () => {
                   type='text'
                   size='lg'
                   placeholder='Search for a book'
+                  className='mb-3'
                 />
               </Col>
               <Col xs={12} md={4}>
