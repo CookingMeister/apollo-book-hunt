@@ -72,6 +72,10 @@ To run the Apollo Book Hunt application locally, follow these steps:
 
 ![Screenshot of Apollo Book Hunt](client/public/mockup.png)
 
+## Link
+
+The Apollo Book Hunt application is deployed on Render at [https://apollo-book-hunt.onrender.com](https://apollo-book-hunt.onrender.com).
+
 ## API Documentation
 
 The Apollo Book Hunt API is built using GraphQL and follows the GraphQL schema defined in `server/schemas/typeDefs.js`. The available queries and mutations are:
