@@ -11,9 +11,10 @@
 - [Screenshot](#screenshot)
 - [API Documentation](#api-documentation)
 - [Contributing](#contributing)
-- [Credits](#credits)
 - [Questions](#questions)
+- [Credits](#credits)
 - [License](#license)
+- [Acknowledgements](#acknowledgements)
 
 ## Description
 
@@ -26,18 +27,6 @@ Apollo Book Hunt is a full-stack web application that allows users to search for
 - Save books: Logged-in users can save books to their reading list for future reference.
 - Manage reading list: Users can view and remove books from their saved reading list.
 - Responsive design: The application is designed to work seamlessly across different devices and screen sizes.
-
-## Technologies Used
-
-- MongoDB: A NoSQL database used to store user and book data.
-- Express: A web application framework for Node.js used to build the server-side API.
-- React: A JavaScript library for building user interfaces, used for the client-side application.
-- Node.js: A JavaScript runtime environment used to run the server-side code.
-- GraphQL: A query language for APIs, used to define the schema and resolvers for efficient data fetching and manipulation.
-- Apollo Server: A GraphQL server implementation that integrates with Express and provides a set of tools for building GraphQL APIs.
-- JWT (JSON Web Tokens): Used for user authentication and authorization.
-- Mongoose: An Object Data Modeling (ODM) library for MongoDB and Node.js, used to define database schemas and interact with the database.
-- Vite: A fast build tool used for the client-side development server and bundling.
 
 ## Getting Started
 
@@ -67,6 +56,18 @@ To run the Apollo Book Hunt application locally, follow these steps:
 
 5. Open your browser and visit [http://localhost:5173](http://localhost:5173) to access the Apollo Book Hunt application.
 
+## Technologies Used
+
+- MongoDB: A NoSQL database used to store user and book data.
+- Express: A web application framework for Node.js used to build the server-side API.
+- React: A JavaScript library for building user interfaces, used for the client-side application.
+- Node.js: A JavaScript runtime environment used to run the server-side code.
+- GraphQL: A query language for APIs, used to define the schema and resolvers for efficient data fetching and manipulation.
+- Apollo Server: A GraphQL server implementation that integrates with Express and provides a set of tools for building GraphQL APIs.
+- JWT (JSON Web Tokens): Used for user authentication and authorization.
+- Mongoose: An Object Data Modeling (ODM) library for MongoDB and Node.js, used to define database schemas and interact with the database.
+- Vite: A fast build tool used for the client-side development server and bundling.
+
 ## Screenshot
 
 ![Screenshot of Apollo Book Hunt](client/public/mockup.png)
@@ -87,13 +88,13 @@ For detailed information about the API schema and usage, please refer to the Gra
 
 Contributions to the Apollo Book Hunt project are welcome! If you find any bugs, have feature requests, or want to contribute improvements, please open an issue or submit a pull request.
 
-## Credits
-
-This app was created by [CookingMeister](https://github.com/CookingMeister) on criteria from the University of New Brunswick's [edX Coding Bootcamp](https://unb.ca/cel/bootcamps/coding.html) program with starter souce code from [here](https://github.com/coding-boot-camp/solid-broccoli). Program materials, [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started) and [Apollo Client docs](https://www.apollographql.com/docs/react/get-started) were referenced for this app.
-
 ## Questions
 
 If you have an questions about this app, please contact me at [LinkedIn](https://www.linkedin.com/in/shawn-meister-bb646b29a/). More of my work can be viewed at [Github](https://github.com/CookingMeister).
+
+## Credits
+
+This app was created by [CookingMeister](https://github.com/CookingMeister) on criteria from the University of New Brunswick's [edX Coding Bootcamp](https://unb.ca/cel/bootcamps/coding.html) program with starter souce code from [here](https://github.com/coding-boot-camp/solid-broccoli). Program materials, [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started) and [Apollo Client docs](https://www.apollographql.com/docs/react/get-started) were referenced for this app.
 
 ## License
 

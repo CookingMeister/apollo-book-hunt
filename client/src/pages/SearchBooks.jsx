@@ -48,6 +48,7 @@ const SearchBooks = () => {
       }
 
       const { items } = await response.json();
+      console.log(items);
 
       const bookData = items.map((book) => ({
         bookId: book.id,
@@ -96,7 +97,7 @@ const SearchBooks = () => {
 
   return (
     <>
-      <div className="text-light bg-dark p-5">
+      <div className="text-light bg-dark p-4">
         <Container>
           <h1>Search for Books!</h1>
           <Form onSubmit={handleFormSubmit}>
