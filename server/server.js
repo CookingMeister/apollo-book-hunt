@@ -51,6 +51,6 @@ const startServer = async () => {
 startServer();
 
 // Catch-all route handler for client-side routing
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/build/index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
